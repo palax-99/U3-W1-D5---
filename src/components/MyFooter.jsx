@@ -64,7 +64,6 @@ function MyFooter() {
           </Col>
         </Row>
 
-        {/* Service Code button */}
         <Row className="justify-content-center mb-3">
           <Col className="text-center">
             <Button variant="secondary" size="sm" className="footer-button rounded-0 mt-3">
@@ -73,7 +72,6 @@ function MyFooter() {
           </Col>
         </Row>
 
-        {/* Copyright */}
         <Row className="justify-content-center">
           <Col className="text-center copyright">© 1997-2023 Netflix, Inc.</Col>
         </Row>
