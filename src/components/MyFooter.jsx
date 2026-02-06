@@ -13,7 +13,6 @@ function MyFooter() {
           </Col>
         </Row>
 
-        {/* Footer links in 4 columns */}
         <Row className="mb-4 text-center text-md-start">
           <Col md={3} className="footer-links">
             <p>
