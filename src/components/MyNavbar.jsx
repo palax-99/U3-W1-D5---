@@ -1,8 +1,13 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 function MyNavbar() {
+  const location = useLocation();
+  console.log("OGGETTO LOCATION", location);
+
   return (
     <Navbar expand="lg" bg="dark" data-bs-theme="dark" style={{ backgroundColor: "#221f1f" }}>
       <Container fluid>
@@ -14,15 +19,17 @@ function MyNavbar() {
 
         <Navbar.Collapse id="navbarSupportedContent">
           <Nav className="me-auto mb-2 mb-lg-0">
-            <Nav.Link active className="fw-bold" href="#">
+            <Link to="/" className={location.pathname === "/" ? "nav-link active" : "nav-link"}>
               Home
-            </Nav.Link>
-            <Nav.Link className="fw-bold" href="#">
-              TV Shows
-            </Nav.Link>
-            <Nav.Link className="fw-bold" href="#">
-              Movies
-            </Nav.Link>
+            </Link>
+
+            <Link to="/tv-show" className={location.pathname === "/tv-show" ? "nav-link active" : "nav-link"}>
+              Tv Show
+            </Link>
+
+            <Link to="/details/:FilmID" className={location.pathname === "/details/FilmID" ? "nav-link active" : "nav-link"}>
+              Details
+            </Link>
             <Nav.Link className="fw-bold" href="#">
               Recently Added
             </Nav.Link>

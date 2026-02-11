@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { Container, Row, Col, Spinner, Alert } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 class AllTheMain extends Component {
   state = {
@@ -10,7 +11,7 @@ class AllTheMain extends Component {
   };
 
   getMovies = (searchTerm, stateKey) => {
-    fetch(`http://www.omdbapi.com/?apikey=26793b79&s=${searchTerm}`)
+    fetch(`http://www.omdbapi.com/?apikey=7c443bde&s=${searchTerm}`)
       .then((response) => {
         if (response.ok) {
           return response.json();
@@ -30,7 +31,7 @@ class AllTheMain extends Component {
   };
 
   componentDidMount() {
-    this.getMovies("Naruto", "trending");
+    this.getMovies("Squid Game", "trending");
     this.getMovies("One Piece", "watchAgain");
     this.getMovies("Demon Slayer", "newReleases");
   }
@@ -54,7 +55,9 @@ class AllTheMain extends Component {
       <Row className="mb-4">
         {moviesToShow.map((movie) => (
           <Col key={movie.imdbID} xs={12} sm={6} md={4} lg={2} className="mb-2 text-center px-2">
-            <img className="img-fluid" src={movie.Poster} alt={movie.Title} style={{ borderRadius: "4px", cursor: "pointer" }} />
+            <Link to={`/details/${movie.imdbID}`}>
+              <img className="img-fluid" src={movie.Poster} alt={movie.Title} style={{ borderRadius: "4px", cursor: "pointer" }} />
+            </Link>
           </Col>
         ))}
       </Row>

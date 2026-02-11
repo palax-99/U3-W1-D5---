@@ -4,13 +4,22 @@ import MyNavbar from "./components/MyNavbar";
 import "./App.css";
 import AllTheMain from "./AllTheMain";
 import MyFooter from "./components/MyFooter";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ComponenteDiProva from "./components/ComponenteDiProva";
+import DetailsFilm from "./components/DetailsFilm";
 
 function App() {
   return (
     <>
-      <MyNavbar />
-      <AllTheMain />
-      <MyFooter />
+      <BrowserRouter>
+        <MyNavbar />
+        <Routes>
+          <Route path="/" element={<AllTheMain />} />
+          <Route path="/tv-show" element={<ComponenteDiProva />} />
+          <Route path="/details/:filmID" element={<DetailsFilm />} />
+        </Routes>
+        <MyFooter />
+      </BrowserRouter>
     </>
   );
 }
